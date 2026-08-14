@@ -39,6 +39,11 @@ local.properties
 google-services.json
 GoogleService-Info.plist
 
+# Android SQLite Databases & Local Storage
+*.db
+*.db-journal
+backend/prisma/dev.db
+
 # Android SDK & Local Build Artifacts
 android/.gradle/
 android/.idea/
