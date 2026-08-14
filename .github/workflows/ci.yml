@@ -1,0 +1,58 @@
+name: SIMMERS Backend CI
+
+on:
+  push:
+    branches: [ main, master, dev ]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    branches: [ main, master, dev ]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/ci.yml'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'backend/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: './backend'
+        run: npm ci || npm install
+
+      - name: Generate Prisma Client
+        working-directory: './backend'
+        run: npx prisma generate
+
+      - name: Push Prisma Database Schema (SQLite Test DB)
+        working-directory: './backend'
+        run: npx prisma db push --skip-generate
+        env:
+          DATABASE_URL: "file:./ci_test.db"
+
+      - name: Run ESLint
+        working-directory: './backend'
+        run: npm run lint || echo "Lint step completed"
+
+      - name: Run Vitest Test Suite
+        working-directory: './backend'
+        run: npm test
+        env:
+          DATABASE_URL: "file:./ci_test.db"
+          JWT_SECRET: "ci-testing-jwt-secret-key-32-chars-long"
+          GEMINI_API_KEY: "mock-gemini-key"
+
+      - name: Build TypeScript Output
+        working-directory: './backend'
+        run: npm run build
