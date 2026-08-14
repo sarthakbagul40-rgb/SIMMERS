@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.simmers.app",
+      "sha256_cert_fingerprints": [
+        "75:D4:0B:48:59:59:4B:33:C2:E9:9D:90:C7:72:68:94:96:0D:49:B4:8A:64:88:28:75:45:76:DC:1F:FD:C3:CA",
+        "41:20:21:A9:25:B0:66:4E:E1:35:48:EF:EB:AD:2E:01:62:A7:D6:B7:AB:CD:B7:E8:73:BA:05:BF:AA:59:C9:37",
+        "EF:23:38:23:DA:CB:9C:56:6F:87:57:D1:5D:AD:FD:D2:68:A1:F5:26:A9:58:41:A9:02:60:59:4D:FD:45:57:F5"
+      ]
+    }
+  }
+]

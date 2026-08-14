@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/pwa-512x512.png?v=2" />
+    <link rel="shortcut icon" type="image/png" href="/pwa-512x512.png?v=2" />
+    <link rel="apple-touch-icon" href="/pwa-512x512.png?v=2" />
+    <link rel="manifest" href="/manifest.json?v=2" />
+    <meta name="theme-color" content="#EDF2F7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="SIMMERS" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>SIMMERS — Zero Food Waste RPG</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+
+      .splash-screen {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: #EDF2F7 !important;
+        color: #2D3561 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 999999 !important;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        overflow: hidden !important;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+
+      .splash-title {
+        font-size: 36px !important;
+        font-weight: 900 !important;
+        letter-spacing: 2px !important;
+        color: #2D3561 !important;
+        background: linear-gradient(135deg, #2D3561 0%, #3B5998 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        margin-bottom: 12px !important;
+      }
+
+      .splash-mascot {
+        width: 180px !important;
+        height: auto !important;
+        margin-bottom: 20px !important;
+        animation: floatMascot 3s ease-in-out infinite !important;
+      }
+
+      @keyframes floatMascot {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+
+      .splash-wheel-wrap {
+        position: relative !important;
+        width: 220px !important;
+        height: 220px !important;
+        margin-bottom: 32px !important;
+      }
+
+      .splash-wheel-rotator {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        animation: wheelSpin 4s linear infinite !important;
+      }
+
+      @keyframes wheelSpin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+
+      .splash-wheel-rotator svg {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .splash-food {
+        position: absolute !important;
+        width: 42px !important;
+        height: 42px !important;
+        object-fit: contain !important;
+        animation: foodCounterSpin 4s linear infinite !important;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12)) !important;
+      }
+
+      @keyframes foodCounterSpin {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to   { transform: translate(-50%, -50%) rotate(-360deg); }
+      }
+
+      /* Bread at 9 o'clock (left center) */
+      .splash-food-bread  { left: 0px !important;  top: 89px !important; }
+      /* Milk at 1-2 o'clock (upper right) */
+      .splash-food-milk   { left: 186px !important; top: 40px !important; }
+      /* Potato at 5 o'clock (lower right) */
+      .splash-food-potato { left: 160px !important; top: 192px !important; }
+
+      .splash-status {
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        color: #2D3561 !important;
+        margin-bottom: 6px !important;
+        text-align: center !important;
+      }
+
+      .splash-substatus {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        color: #94A3B8 !important;
+        text-align: center !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Native HTML Splash Screen (Outside React #root so style & structure are never wiped out) -->
+    <div id="splash-root" class="splash-screen">
+      <div class="splash-title">SIMMER</div>
+
+      <img src="/splash-mascot.png" alt="SIMMER Mascot" class="splash-mascot" />
+
+      <div class="splash-wheel-wrap">
+        <div class="splash-wheel-rotator">
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="110" cy="110" r="90" fill="none" stroke="#D8DEE6" stroke-width="6" />
+            <path d="M 65 28 A 90 90 0 0 1 195 130" fill="none" stroke="#14B8A6" stroke-width="6" stroke-linecap="round" />
+            <polygon points="189,138 201,132 193,122" fill="#14B8A6" />
+            <path d="M 155 192 A 90 90 0 0 1 25 90" fill="none" stroke="#14B8A6" stroke-width="6" stroke-linecap="round" />
+            <polygon points="31,82 19,88 27,98" fill="#14B8A6" />
+          </svg>
+          <img src="/food-bread.png"  alt="Bread"  class="splash-food splash-food-bread" />
+          <img src="/food-milk.png"   alt="Milk"   class="splash-food splash-food-milk" />
+          <img src="/food-potato.png" alt="Potato" class="splash-food splash-food-potato" />
+        </div>
+      </div>
+
+      <div class="splash-status">Simmering up your pantry...</div>
+      <div class="splash-substatus">Just a moment</div>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('Service Worker Registered successfully:', reg.scope))
+            .catch((err) => console.warn('Service Worker registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
+

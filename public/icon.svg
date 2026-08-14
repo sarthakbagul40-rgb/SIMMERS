@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="shadowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0.0" />
+    </linearGradient>
+  </defs>
+  <!-- Background circular patch -->
+  <circle cx="120" cy="120" r="100" fill="#E4ECF5" />
+  
+  <g transform="translate(0, 5)">
+    <!-- Shadow beneath mascot -->
+    <ellipse cx="120" cy="215" rx="70" ry="10" fill="url(#shadowGrad)" />
+
+    <!-- Main Fridge-Blob Body -->
+    <rect
+      x="50" y="35" width="140" height="160" rx="30"
+      fill="url(#bodyGrad)" stroke="#047857" stroke-width="4"
+    />
+
+    <!-- Fridge Door Split Line -->
+    <line
+      x1="120" y1="37" x2="120" y2="193"
+      stroke="#047857" stroke-width="3" stroke-dasharray="4 4" opacity="0.6"
+    />
+
+    <!-- Handles -->
+    <rect x="107" y="100" width="5" height="30" rx="2.5" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+    <rect x="128" y="100" width="5" height="30" rx="2.5" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+
+    <!-- Heart Magnet -->
+    <path
+      d="M 70,60 C 70,56 76,56 78,60 C 80,56 86,56 86,60 C 86,66 78,70 78,70 C 78,70 70,66 70,60 Z"
+      fill="#ef4444" transform="rotate(-5, 78, 65)"
+    />
+
+    <!-- Anime eyes -->
+    <g fill="#1e293b">
+      <circle cx="85" cy="98" r="8" />
+      <circle cx="82" cy="95" r="2.5" fill="#fff" />
+      <circle cx="155" cy="98" r="8" />
+      <circle cx="152" cy="95" r="2.5" fill="#fff" />
+    </g>
+
+    <!-- Small cute smile -->
+    <path d="M 115,118 Q 120,123 125,118" stroke="#1e293b" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Gold Crown -->
+    <g transform="translate(100, 5) scale(0.95)">
+      <path
+        d="M 5,28 L 15,10 L 30,22 L 45,5 L 60,22 L 75,10 L 85,28 Z"
+        fill="#fbbf24" stroke="#78350f" stroke-width="3" stroke-linejoin="round"
+      />
+      <rect x="5" y="25" width="80" height="5" fill="#f59e0b" stroke="#78350f" stroke-width="2.5" />
+      <circle cx="15" cy="9" r="2" fill="#ef4444" />
+      <circle cx="45" cy="4" r="2" fill="#ef4444" />
+      <circle cx="75" cy="9" r="2" fill="#ef4444" />
+    </g>
+  </g>
+</svg>

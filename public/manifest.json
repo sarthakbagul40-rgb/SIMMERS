@@ -1,0 +1,37 @@
+{
+  "id": "/",
+  "name": "SIMMERS — Zero Food Waste RPG",
+  "short_name": "SIMMERS",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "background_color": "#EDF2F7",
+  "theme_color": "#EDF2F7",
+  "description": "Track freshness, rescue food, save money, and level up your kitchen mascot.",
+  "orientation": "portrait-primary",
+  "categories": [
+    "food",
+    "lifestyle",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "240x240",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

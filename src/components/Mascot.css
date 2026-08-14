@@ -1,0 +1,252 @@
+/* Senior MNC Glass Stage Mascot Presentation Styles */
+
+.mascot-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding-top: 95px;
+  margin-bottom: 16px;
+}
+
+/* Glassmorphic Cyber Dome Stage */
+.mascot-circle-backdrop {
+  width: 320px;
+  height: 380px;
+  max-width: 80vw;
+  max-height: 48vh;
+  border-radius: 160px;
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.25) 0%, rgba(99, 102, 241, 0.08) 70%, transparent 100%), rgba(219, 234, 254, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px 20px 12px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: inset 0 0 35px rgba(59, 130, 246, 0.2), 0 20px 45px -10px rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  transition: background 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode .mascot-circle-backdrop {
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.25) 0%, rgba(99, 102, 241, 0.08) 70%, transparent 100%), rgba(18, 24, 38, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: inset 0 0 35px rgba(59, 130, 246, 0.25), 0 20px 50px -10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Mascot SVG Artwork with Lifelike Gentle Breathing Float */
+.mascot-svg-stitch {
+  width: 220px;
+  height: 270px;
+  max-width: 70vw;
+  max-height: 36vh;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+  animation: mascotBreathFloat 3.8s infinite ease-in-out;
+}
+
+@keyframes mascotBreathFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Lifelike Natural Eye Blink Animation (Double Blink Rhythm Every 4s) */
+.mascot-eye-blink {
+  animation: naturalEyeBlink 4.2s infinite ease-in-out;
+  transform-origin: 100px 73px;
+}
+
+@keyframes naturalEyeBlink {
+  0%, 88%, 94%, 100% {
+    transform: scaleY(1);
+  }
+  90% {
+    transform: scaleY(0.08); /* Quick natural blink 1 */
+  }
+  91.5% {
+    transform: scaleY(1);
+  }
+  92.5% {
+    transform: scaleY(0.12); /* Double-blink micro flutter */
+  }
+}
+
+
+.mascot-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  margin-bottom: 2px;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.mascot-name-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.dark-mode .mascot-name-label {
+  color: #f8fafc !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.mascot-rank-sublabel {
+  font-size: 11px;
+  font-weight: 800;
+  color: #4f46e5;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 12px;
+  padding: 3px 10px;
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(8px);
+}
+
+body.dark-mode .mascot-rank-sublabel {
+  color: #818cf8 !important;
+  background: rgba(99, 102, 241, 0.22) !important;
+  border-color: rgba(129, 140, 248, 0.4) !important;
+}
+
+
+/* Clean Floating Glass Stats Card */
+.mascot-stats-card {
+  width: 92%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+body.dark-mode .mascot-stats-card {
+  background: rgba(18, 24, 38, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+  color: #f8fafc !important;
+}
+
+.lvl-badge-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.lvl-sub {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.xp-section {
+  flex: 1;
+  margin: 0 14px;
+}
+
+.xp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+body.dark-mode .xp-header {
+  color: #cbd5e1 !important;
+}
+
+.xp-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(226, 232, 240, 0.9);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(203, 213, 225, 0.6);
+}
+
+body.dark-mode .xp-track {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.xp-fill {
+  height: 100%;
+  min-width: 6px;
+  background: linear-gradient(90deg, #10b981 0%, #38bdf8 100%);
+  border-radius: 8px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
+}
+
+.health-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.health-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+body.dark-mode .health-title {
+  color: #94a3b8 !important;
+}
+
+.hearts-row {
+  display: flex;
+  gap: 3px;
+  font-size: 14px;
+}

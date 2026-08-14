@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SIMMERS</string>
+    <string name="title_activity_main">SIMMERS</string>
+    <string name="package_name">com.bestit.simmers</string>
+    <string name="custom_url_scheme">com.bestit.simmers</string>
+</resources>

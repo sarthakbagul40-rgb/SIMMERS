@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SIMMERS - Loading</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;600&amp;family=Geist:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffe16d",
+                        "primary-container": "#090d16",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#002022",
+                        "on-tertiary-fixed-variant": "#004f54",
+                        "on-primary-fixed-variant": "#434751",
+                        "tertiary-fixed-dim": "#00dbe7",
+                        "tertiary-container": "#001011",
+                        "on-secondary-fixed": "#221b00",
+                        "secondary-fixed-dim": "#e9c400",
+                        "primary-fixed": "#dfe2ef",
+                        "secondary-container": "#ffdb3c",
+                        "primary": "#c3c6d3",
+                        "on-secondary-container": "#725f00",
+                        "on-surface-variant": "#c6c6cc",
+                        "on-tertiary-container": "#008890",
+                        "surface-container-lowest": "#020f1c",
+                        "surface-bright": "#2d3a49",
+                        "inverse-primary": "#5a5e69",
+                        "primary-fixed-dim": "#c3c6d3",
+                        "surface-container-high": "#1e2b39",
+                        "on-primary-container": "#777a86",
+                        "secondary": "#fff9ef",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-low": "#0f1d2a",
+                        "surface-dim": "#061422",
+                        "on-tertiary": "#00363a",
+                        "surface-variant": "#293644",
+                        "tertiary-fixed": "#74f5ff",
+                        "outline-variant": "#45464b",
+                        "inverse-on-surface": "#243240",
+                        "on-secondary": "#3a3000",
+                        "on-primary-fixed": "#181b25",
+                        "background": "#061422",
+                        "surface-container": "#13212e",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#d6e4f7",
+                        "on-background": "#d6e4f7",
+                        "tertiary": "#00dbe7",
+                        "on-error": "#690005",
+                        "surface": "#061422",
+                        "surface-container-highest": "#293644",
+                        "on-surface": "#d6e4f7",
+                        "surface-tint": "#c3c6d3",
+                        "on-primary": "#2c303a",
+                        "outline": "#909096"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-margin": "20px",
+                        "xl": "40px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "lg": "24px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Sora"],
+                        "label-caps": ["Geist"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Sora"],
+                        "display-xl-mobile": ["Sora"],
+                        "title-md": ["Hanken Grotesk"],
+                        "display-xl": ["Sora"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "display-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes pulse-neon {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 219, 231, 0.4)) drop-shadow(0 0 30px rgba(233, 196, 0, 0.2)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 25px rgba(0, 219, 231, 0.7)) drop-shadow(0 0 50px rgba(233, 196, 0, 0.4)); transform: scale(1.05); }
+        }
+        @keyframes float-up {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        @keyframes swipe-hint {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(-10px); opacity: 1; }
+        }
+        .pulse-active { animation: pulse-neon 4s ease-in-out infinite; }
+        .particle { position: absolute; background: white; border-radius: 50%; pointer-events: none; }
+        .text-gradient-gold {
+            background: linear-gradient(to bottom, #ffe16d 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .loading-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .loading-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 219, 231, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center overflow-hidden font-body-lg text-body-lg">
+<!-- Full-bleed Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_3 class="absolute inset-0 w-full h-full z-0 opacity-60" -->
+<div class="absolute inset-0 w-full h-full z-0 opacity-60" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_3');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 p = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    
+    // Create base dark navy
+    vec3 color = vec3(0.035, 0.051, 0.086); // #090D16
+    
+    // Ambient floating orbs
+    for(float i = 1.0; i < 4.0; i++) {
+        vec2 center = vec2(
+            sin(u_time * 0.4 * i + i) * 0.5,
+            cos(u_time * 0.3 * i) * 0.5
+        );
+        float dist = length(p - center);
+        float glow = 0.05 / (dist * dist + 0.1);
+        
+        // Orb colors: mix of neon cyan and deep blue
+        vec3 orbColor = mix(vec3(0.0, 0.95, 1.0), vec3(0.1, 0.2, 0.5), sin(i + u_time) * 0.5 + 0.5);
+        color += orbColor * glow * 0.4;
+    }
+    
+    // Subtle noise/grain for texture
+    float noise = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
+    color += noise * 0.015;
+    
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_3 -->
+<!-- Background Particles Layer -->
+<div class="absolute inset-0 z-10 pointer-events-none" id="particle-container"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-20 flex flex-col items-center justify-center w-full max-w-md px-container-margin h-full">
+<!-- Mascot Badge Section -->
+<div class="relative mb-lg">
+<div class="absolute inset-0 bg-tertiary/20 blur-3xl rounded-full scale-150"></div>
+<div class="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
+<img alt="SIMMERS Mascot Badge" class="w-full h-full object-contain pulse-active" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl0BJYWV7FcK3hDQ7R2tOvULAfXW9jJXYHu4HkVAfzFtgsRzC1GnyEV7DFMCceO9Psimw4AbWAPw_C4bBXTtUo18iLmB3jhHx0iq_bw6j3jBrwNew4pvqC6dlfolQVbsA3BGSNkuz4XCQpH9X_lY8Nl3EGbP2_6AgioReLXIQLIsYjC7EIw7XJjJsC06yc4uJiky6flTza43O2ZmY2PxEUQZxT3kqhBO-Gdmi2YcFeWuctJ2Spe4QkyLC1Gsp2O32EyC0ah6ZBsg"/>
+</div>
+</div>
+<!-- Branding Section -->
+<div class="text-center mb-xl">
+<h1 class="font-display-xl-mobile text-display-xl-mobile text-gradient-gold drop-shadow-lg tracking-tighter">
+                SIMMERS
+            </h1>
+<!-- Kitchen Master Badge -->
+<div class="inline-flex items-center gap-2 mt-xs px-4 py-1.5 rounded-full bg-secondary-container/10 border border-secondary-fixed/30 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]" style="font-variation-settings: 'FILL' 1;">save_as</span>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase">Kitchen Master</span>
+</div>
+</div>
+<!-- Loading Component -->
+<div class="w-full mt-10">
+<div class="bg-primary-container/70 backdrop-blur-xl rounded-xl p-6 border border-white/10 shadow-2xl">
+<div class="flex justify-between items-end mb-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Leveling Up Your Pantry...</p>
+<p class="font-label-caps text-label-caps text-tertiary-fixed-dim">84%</p>
+</div>
+<!-- Loading Bar -->
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden border border-white/5 p-[1px]">
+<div class="h-full w-[84%] bg-gradient-to-r from-tertiary to-tertiary-fixed-dim rounded-full loading-shimmer shadow-[0_0_15px_rgba(0,219,231,0.6)]"></div>
+</div>
+</div>
+</div>
+<!-- Swipe Hint (Bottom Anchor) -->
+<div class="absolute bottom-12 flex flex-col items-center gap-2 animate-[swipe-hint_3s_infinite_ease-in-out]">
+<p class="font-label-caps text-label-caps text-on-surface-variant/60 tracking-widest uppercase">Swipe up to explore</p>
+<span class="material-symbols-outlined text-on-surface-variant/40">expand_less</span>
+</div>
+</main>
+<script>
+        // Micro-particles Animation Script
+        const container = document.getElementById('particle-container');
+        const particleCount = 40;
+
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random properties
+            const size = Math.random() * 3 + 1;
+            const xPos = Math.random() * 100;
+            const duration = Math.random() * 5 + 5;
+            const delay = Math.random() * 10;
+            const isCyan = Math.random() > 0.5;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${xPos}%`;
+            particle.style.background = isCyan ? '#00dbe7' : '#ffffff';
+            particle.style.opacity = Math.random() * 0.5 + 0.2;
+            particle.style.animation = `float-up ${duration}s linear ${delay}s infinite`;
+            
+            container.appendChild(particle);
+        }
+
+        // Interaction Mockup: Simple Touch/Swipe listener
+        let startY;
+        document.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].pageY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const endY = e.changedTouches[0].pageY;
+            if (startY - endY > 100) {
+                // Trigger transition effect
+                document.body.style.transition = 'opacity 0.8s ease-out';
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    console.log('Navigating to Dashboard...');
+                    // In a real app: window.location.href = '/dashboard';
+                }, 800);
+            }
+        });
+    </script>
+</body></html>
