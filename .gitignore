@@ -30,6 +30,7 @@ dist-ssr
 *.apk
 *.zip
 android-sdk/
+**/android-sdk/
 local.properties
 *.jks
 *.keystore
@@ -53,6 +54,14 @@ android/sources/
 android/licenses/
 android/local.properties
 android/capacitor-cordova-android-plugins/
+**/android/build/
+**/android/app/build/
+**/android/build-tools/
+**/android/emulator/
+**/android/platform-tools/
+**/android/platforms/
+**/android/sources/
+**/android/licenses/
 
 
 

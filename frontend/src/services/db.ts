@@ -372,7 +372,7 @@ export class DbService {
     }
 
     items[itemIndex].status = 'active';
-    delete items[itemIndex].markedAt;
+    delete (items[itemIndex] as any).markedAt;
     this.saveItems(items);
 
     // Restore 10% Health

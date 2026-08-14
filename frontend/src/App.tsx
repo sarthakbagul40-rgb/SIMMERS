@@ -402,7 +402,7 @@ const ConfettiCanvas: React.FC = () => {
     type?: 'success' | 'error' | 'warning' | 'info';
     undoAction?: () => void;
   } | null>(null);
-  const toastTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [xpFloatPopup, setXpFloatPopup] = useState<string | null>(null);
   const [lastAddedItemId, setLastAddedItemId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -1892,16 +1892,19 @@ const ConfettiCanvas: React.FC = () => {
                     }
                     // Status Filter
                     const badge = getItemStatusBadge(item);
-                    if (selectedFilter === 'urgent' && (badge.days > 3 || badge.days <= 0)) return false;
-                    if (selectedFilter === 'expired' && badge.days > 0) return false;
-                    if (selectedFilter === 'safe' && badge.days <= 3) return false;
+                    const daysNum = typeof badge.days === 'number' ? badge.days : 999;
+                    if (selectedFilter === 'urgent' && (daysNum > 3 || daysNum <= 0)) return false;
+                    if (selectedFilter === 'expired' && daysNum > 0) return false;
+                    if (selectedFilter === 'safe' && daysNum <= 3) return false;
                     return true;
                   })
                   .sort((a, b) => {
                     if (sortOrder === 'name') return a.name.localeCompare(b.name);
                     if (sortOrder === 'dateAdded') return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
                     // Default: Urgency (fewest days left first)
-                    return getItemStatusBadge(a).days - getItemStatusBadge(b).days;
+                    const daysA = typeof getItemStatusBadge(a).days === 'number' ? (getItemStatusBadge(a).days as number) : 999;
+                    const daysB = typeof getItemStatusBadge(b).days === 'number' ? (getItemStatusBadge(b).days as number) : 999;
+                    return daysA - daysB;
                   })
                   .map((item) => {
                     const badge = getItemStatusBadge(item);
